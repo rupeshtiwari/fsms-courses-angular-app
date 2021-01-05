@@ -1,4 +1,3 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -19,7 +18,25 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "core-data": [
+        "dist/core-data/core-data",
+        "dist/core-data"
+      ],
+      "material": [
+        "dist/material/material",
+        "dist/material"
+      ],
+      "ui-toolbar": [
+        "dist/ui-toolbar/ui-toolbar",
+        "dist/ui-toolbar"
+      ],
+      "ui-login": [
+        "dist/ui-login/ui-login",
+        "dist/ui-login"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

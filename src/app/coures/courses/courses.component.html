@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="col-50">
+    <app-course-list
+      [courses]="courses$ | async"
+      (selected)="selectCourse($event)"
+      (deleted)="deleteCourse($event)">
+    </app-course-list>
+  </div>
+
+  <div class="col-50">
+    <app-course-details
+      [course]="currentCourse$ | async"
+      [students]="students$ | async"
+      (saved)="saveCourse($event)"
+      (cancelled)="resetCurrentCourse($event)">
+    </app-course-details>
+  </div>
+</div>
