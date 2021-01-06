@@ -9,8 +9,8 @@ import { Course } from 'projects/core-data/src/lib/courses/course.model';
 export class CourseListComponent implements OnInit {
   @Input() courses: Course[] | undefined;
   @Input() readonly = false;
-  @Output() selected = new EventEmitter();
-  @Output() deleted = new EventEmitter();
+  @Output() selected = new EventEmitter<Course>();
+  @Output() deleted = new EventEmitter<Course>();
 
   constructor() {}
 

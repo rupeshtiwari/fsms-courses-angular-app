@@ -13,6 +13,8 @@ export class AppComponent {
   isLoggedIn$: Observable<boolean> = this.authService.isAuthenticated$;
   isLoggedIn: boolean = false;
 
+  links = [{ path: '/courses', icon: 'work', label: 'courses' }];
+
   constructor(
     private readonly authService: AuthService,
     private readonly router: Router

@@ -14,8 +14,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]> | undefined;
-  customers$: Observable<Student[]> | undefined;
-  currentCourse$: BehaviorSubject<Course> = new BehaviorSubject<Course>(
+  students$: Observable<Student[]> | undefined;
+  private _currentCourse$: BehaviorSubject<Course> = new BehaviorSubject<Course>(
     emptyCourse
   );
 
@@ -31,27 +31,31 @@ export class CoursesComponent implements OnInit {
     this.resetCurrentCourse();
   }
 
+  get currentCourse$() {
+    return this._currentCourse$.asObservable();
+  }
+
   resetCurrentCourse() {
-    this.currentCourse$.next(emptyCourse);
+    this._currentCourse$.next(emptyCourse);
   }
 
-  selectCourse(course: Course) {
-    this.currentCourse$.next(course);
+  selectCourse(course: any) {
+    this._currentCourse$.next(course);
   }
 
-  cancel(course: Course) {
+  cancel(course: any) {
     this.resetCurrentCourse();
   }
 
   getStudents() {
-    this.customers$ = this.customerService.all();
+    this.students$ = this.customerService.all();
   }
 
   getCourses() {
     this.courses$ = this.coursesService.all();
   }
 
-  saveCourse(course: Course) {
+  saveCourse(course: any) {
     if (!course.id) {
       this.createCourse(course);
     } else {
@@ -59,7 +63,7 @@ export class CoursesComponent implements OnInit {
     }
   }
 
-  createCourse(course: Course) {
+  createCourse(course: any) {
     this.coursesService.create(course).subscribe(() => {
       this.ns.emit('Course created!');
       this.getCourses();
@@ -67,7 +71,7 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  updateCourse(course: Course) {
+  updateCourse(course: any) {
     this.coursesService.update(course).subscribe(() => {
       this.ns.emit('Course saved!');
       this.getCourses();
@@ -75,7 +79,7 @@ export class CoursesComponent implements OnInit {
     });
   }
 
-  deleteCourse(course: Course) {
+  deleteCourse(course: any) {
     this.coursesService.delete(course).subscribe(() => {
       this.ns.emit('Course deleted!');
       this.getCourses();
