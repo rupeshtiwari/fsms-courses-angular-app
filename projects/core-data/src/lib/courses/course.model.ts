@@ -4,5 +4,6 @@ export interface Course {
   details: string;
   percentComplete: number;
   approved?: boolean;
-  studentId: string|null;
+  studentId: string | null;
+  createDate?: Date;
 }

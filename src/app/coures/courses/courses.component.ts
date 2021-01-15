@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { emptyCourse } from 'projects/core-data/src/lib/courses';
 import { Course } from 'projects/core-data/src/lib/courses/course.model';
 import { CoursesService } from 'projects/core-data/src/lib/courses/courses.service';
@@ -11,6 +11,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   selector: 'app-courses',
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]> = new Observable();
@@ -64,6 +65,7 @@ export class CoursesComponent implements OnInit {
   }
 
   createCourse(course: any) {
+    course = { ...course, createDate: new Date().toLocaleDateString() };
     this.coursesService.create(course).subscribe(() => {
       this.notification.show('Course created!');
       this.getCourses();

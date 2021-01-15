@@ -27,7 +27,7 @@ export class CoursesService {
   }
 
   all() {
-    return this.http.get<Course[]>(this.getUrl());
+    return this.http.get<Course[]>(`${this.getUrl()}?_sort=createDate&_order=desc`);
   }
 
   load(id: string) {
