@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'projects/core-data/src/lib/auth/auth.service';
 
@@ -8,6 +8,8 @@ import { AuthService } from 'projects/core-data/src/lib/auth/auth.service';
 })
 export class UiLoginComponent implements OnInit {
   userLogin = { email: '', password: '' };
+
+
   constructor(
     private readonly router: Router,
     private readonly authService: AuthService

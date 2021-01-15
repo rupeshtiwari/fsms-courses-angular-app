@@ -11,6 +11,6 @@ import { CoursesComponent } from './courses.component';
   imports: [CommonModule, MaterialModule, FormsModule, CoreDataModule],
   declarations: [CoursesComponent, CourseListComponent, CourseDetailsComponent],
 
-  exports: [CoursesComponent],
+  exports: [CoursesComponent, CourseListComponent, CourseDetailsComponent],
 })
 export class CoursesModule {}
