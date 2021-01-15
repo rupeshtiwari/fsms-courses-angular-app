@@ -93,13 +93,23 @@
   ],
   "courses": [
     {
-      "id": 1,
+      "id": 3,
+      "title": "Angular",
+      "details": "Create First App",
+      "percentComplete": 0,
+      "approved": true,
+      "studentId": "2",
+      "createDate": "2021-01-15T18:18:53.391Z"
+    },
+    {
+      "id": 4,
       "title": "RxJS",
-      "details": "learn basics",
+      "details": "Learn Basic",
       "percentComplete": 0,
       "approved": true,
       "studentId": "3",
-      "createDate": "1/15/2021"
+      "createDate": "2021-01-15T18:19:35.393Z"
     }
+
   ]
 }

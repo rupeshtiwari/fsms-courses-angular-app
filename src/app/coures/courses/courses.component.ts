@@ -65,7 +65,7 @@ export class CoursesComponent implements OnInit {
   }
 
   createCourse(course: any) {
-    course = { ...course, createDate: new Date().toLocaleDateString() };
+    course = { ...course, createDate: new Date() };
     this.coursesService.create(course).subscribe(() => {
       this.notification.show('Course created!');
       this.getCourses();

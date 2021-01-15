@@ -12,6 +12,9 @@
         <p mat-line>
           {{course.details}}
         </p>
+        <p>
+          {{course.createDate| date:'medium'}}
+        </p>
         <button *ngIf="!readonly" mat-icon-button (click)="deleted.emit(course);$event.stopImmediatePropagation();">
           <mat-icon>close</mat-icon>
         </button>
