@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'projects/core-data/src/lib/auth/auth.service';
 import { Observable } from 'rxjs';
@@ -8,10 +8,10 @@ import { Observable } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Fullstack Master Courses';
   isLoggedIn$: Observable<boolean> = this.authService.isAuthenticated$;
-  isLoggedIn: boolean = false;
+  isLoggedIn = false;
 
   links = [{ path: '/courses', icon: 'work', label: 'courses' }];
 

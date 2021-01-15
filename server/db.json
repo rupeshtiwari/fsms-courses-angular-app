@@ -94,8 +94,8 @@
   "courses": [
     {
       "id": "1",
-      "title": "Project One",
-      "details": "This is a sample project",
+      "title": "Course One",
+      "details": "This is a sample Course",
       "percentComplete": 20,
       "approved": false,
       "startDate": null,
@@ -105,8 +105,8 @@
     },
     {
       "id": "2",
-      "title": "Project Two",
-      "details": "This is a sample project",
+      "title": "Course Two",
+      "details": "This is a sample Course",
       "percentComplete": 40,
       "approved": false,
       "startDate": null,
@@ -116,8 +116,8 @@
     },
     {
       "id": "3",
-      "title": "Project Three",
-      "details": "This is a sample project",
+      "title": "Course Three",
+      "details": "This is a sample Course",
       "percentComplete": 60,
       "approved": false,
       "startDate": null,
@@ -127,8 +127,8 @@
     },
     {
       "id": "5",
-      "title": "Project Five",
-      "details": "This is a sample project",
+      "title": "Course Five",
+      "details": "This is a sample Course",
       "percentComplete": 100,
       "approved": true,
       "startDate": null,

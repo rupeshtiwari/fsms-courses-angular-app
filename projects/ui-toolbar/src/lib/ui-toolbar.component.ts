@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'ui-toolbar',
+  selector: 'lib-ui-toolbar',
   templateUrl: './ui-toolbar.component.html',
   styleUrls: ['./ui-toolbar.component.scss'],
 

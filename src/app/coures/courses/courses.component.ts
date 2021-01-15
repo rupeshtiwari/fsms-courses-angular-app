@@ -13,16 +13,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
-  courses$: Observable<Course[]> | undefined;
-  students$: Observable<Student[]> | undefined;
-  private _currentCourse$: BehaviorSubject<Course> = new BehaviorSubject<Course>(
+  courses$: Observable<Course[]> = new Observable();
+  students$: Observable<Student[]> = new Observable();
+  private currentCourseSubject: BehaviorSubject<Course> = new BehaviorSubject<Course>(
     emptyCourse
   );
 
   constructor(
     private readonly coursesService: CoursesService,
-    private readonly customerService: StudentsService,
-    private readonly ns: NotificationsService
+    private readonly studentService: StudentsService,
+    private readonly notification: NotificationsService
   ) {}
 
   ngOnInit() {
@@ -32,15 +32,15 @@ export class CoursesComponent implements OnInit {
   }
 
   get currentCourse$() {
-    return this._currentCourse$.asObservable();
+    return this.currentCourseSubject.asObservable();
   }
 
   resetCurrentCourse() {
-    this._currentCourse$.next(emptyCourse);
+    this.currentCourseSubject.next(emptyCourse);
   }
 
   selectCourse(course: any) {
-    this._currentCourse$.next(course);
+    this.currentCourseSubject.next(course);
   }
 
   cancel(course: any) {
@@ -48,7 +48,7 @@ export class CoursesComponent implements OnInit {
   }
 
   getStudents() {
-    this.students$ = this.customerService.all();
+    this.students$ = this.studentService.all();
   }
 
   getCourses() {
@@ -65,7 +65,7 @@ export class CoursesComponent implements OnInit {
 
   createCourse(course: any) {
     this.coursesService.create(course).subscribe(() => {
-      this.ns.emit('Course created!');
+      this.notification.show('Course created!');
       this.getCourses();
       this.resetCurrentCourse();
     });
@@ -73,7 +73,7 @@ export class CoursesComponent implements OnInit {
 
   updateCourse(course: any) {
     this.coursesService.update(course).subscribe(() => {
-      this.ns.emit('Course saved!');
+      this.notification.show('Course saved!');
       this.getCourses();
       this.resetCurrentCourse();
     });
@@ -81,7 +81,7 @@ export class CoursesComponent implements OnInit {
 
   deleteCourse(course: any) {
     this.coursesService.delete(course).subscribe(() => {
-      this.ns.emit('Course deleted!');
+      this.notification.show('Course deleted!');
       this.getCourses();
       this.resetCurrentCourse();
     });

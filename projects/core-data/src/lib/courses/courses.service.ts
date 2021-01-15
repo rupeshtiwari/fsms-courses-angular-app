@@ -34,7 +34,7 @@ export class CoursesService {
     return this.http.get<Course>(this.getUrlForId(id));
   }
 
-  loadByCustomer(studentId: string) {
+  loadByStudent(studentId: string) {
     return this.http
       .get<Course[]>(this.getUrl(), { params: { studentId } })
       .pipe(
@@ -43,12 +43,12 @@ export class CoursesService {
             return of(courses);
           } else {
             return throwError(
-              `No courses exist for customer with ID ${studentId}`
+              `No courses exist for student with ID ${studentId}`
             );
           }
         }),
         catchError((error) => {
-          this.notificationsService.emit(error);
+          this.notificationsService.show(error);
 
           return throwError(error);
         })

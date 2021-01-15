@@ -5,7 +5,7 @@ export interface Student {
   email: string;
   phone: string;
   title: string;
-  status: Status
+  status: Status;
 }
 
 export enum Status {

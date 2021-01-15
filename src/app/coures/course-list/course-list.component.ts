@@ -7,14 +7,14 @@ import { Course } from 'projects/core-data/src/lib/courses/course.model';
   styleUrls: ['./course-list.component.scss'],
 })
 export class CourseListComponent implements OnInit {
-  @Input() courses: Course[] | undefined;
+  @Input() courses: Course[] = [];
   @Input() readonly = false;
   @Output() selected = new EventEmitter<Course>();
   @Output() deleted = new EventEmitter<Course>();
 
   constructor() {}
 
-  trackCourse(index: string, course: Course) {
+  trackCourse(index: any, course: Course) {
     return course.id;
   }
 

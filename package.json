@@ -6,7 +6,7 @@
     "start": "concurrently \"npm run server\" \"ng serve\"",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "ng lint --fix",
     "e2e": "ng e2e",
     "server": "json-server server/db.json"
   },

@@ -7,6 +7,6 @@ import { AuthService } from './auth/auth.service';
 @NgModule({
   providers: [AuthService],
   imports: [CommonModule, HttpClientModule, MaterialModule],
-  exports:[CommonModule]
+  exports: [CommonModule, HttpClientModule]
 })
 export class CoreDataModule {}
