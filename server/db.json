@@ -93,17 +93,6 @@
   ],
   "courses": [
     {
-      "id": "1",
-      "title": "Course One",
-      "details": "This is a sample Course",
-      "percentComplete": 20,
-      "approved": false,
-      "startDate": null,
-      "targetDate": null,
-      "completionDate": null,
-      "studentId": "1"
-    },
-    {
       "id": "2",
       "title": "Course Two",
       "details": "This is a sample Course",
@@ -135,6 +124,14 @@
       "targetDate": "2018-10-26T07:00:00.000Z",
       "completionDate": null,
       "studentId": "1"
+    },
+    {
+      "id": "OUwKEuj",
+      "title": "rxjs",
+      "details": "learn rxjs ",
+      "percentComplete": 0,
+      "approved": true,
+      "studentId": "2"
     }
   ]
 }

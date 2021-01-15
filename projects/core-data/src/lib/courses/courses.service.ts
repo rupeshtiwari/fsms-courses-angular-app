@@ -18,7 +18,7 @@ export class CoursesService {
     private notificationsService: NotificationsService
   ) {}
 
-  getUrl() {
+  getUrl(): string {
     return `${environment.apiEndpoint}${this.model}`;
   }
 
